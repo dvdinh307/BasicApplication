@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#810303</color>
+    <color name="colorPrimaryDark">#810303</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="gray">#DDDDDD</color>
+    <color name="green">#91c527</color>
+    <color name="hint_text">#a5a5a5</color>
+    <!-- Loading-->
+    <color name="bg_loading_color">#60000000</color>
+    <color name="stamp_stoke_grid_view">#b5b5b5</color>
+    <color name="text_description">#818181</color>
+
+    <!--News-->
+    <color name="start_color">#985b5b5b</color>
+    <color name="center_color">#80b9b9b9</color>
+    <color name="end_color">#99FFFFFF</color>
+    <color name="text_business_news">#585858</color>
+    <color name="black">#000000</color>
+
+    <!--New Dialog-->
+    <color name="dialog_color_ok">#ec7589</color>
+    <color name="dialog_color_cancel">#88ccb7</color>
+    <color name="line_name_edit">#e6e6e6</color>
+    <color name="main_bg_ranking">#ac926a</color>
+
+    <!--Profile-->
+    <color name="profile_title_green">#91c527</color>
+    <color name="line">#dfdfdf</color>
+    <color name="color_content">#5b5b5b</color>
+
+    <!--Phase 2-->
+    <color name="white">#ffffff</color>
+    <color name="white_disabled">#9bffffff</color>
+    <color name="dialog_placeholder_color">#aa000000</color>
+    <color name="scrollable_dialog_status_bar_color">#142f2c</color>
+    <color name="md_teal_500">#009688</color>
+    <color name="md_teal_300">#4db6ac</color>
+    <color name="line_new">#d1d2d4</color>
+    <color name="blue">#0078ff</color>
+
+    <!--Loop viewpager-->
+    <color name="default_circle_indicator_page_color">#e4e4e4</color>
+    <color name="default_circle_indicator_fill_color">#404040</color>
+    <integer name="default_circle_indicator_orientation">0</integer>
+    <color name="default_circle_indicator_stroke_color">#e4e4e4</color>
+    <dimen name="default_circle_indicator_stroke_width">0dp</dimen>
+    <dimen name="default_circle_indicator_radius">3dp</dimen>
+    <bool name="default_circle_indicator_centered">true</bool>
+    <bool name="default_circle_indicator_snap">true</bool>
+
+    <color name="acacac">#acacac</color>
+    <color name="bg_pop_up">#333333</color>
 </resources>

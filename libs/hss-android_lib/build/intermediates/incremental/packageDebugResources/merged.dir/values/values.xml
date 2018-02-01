@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBlue">#3498DB</color>
+    <color name="colorBluePressed">#2980B9</color>
+    <declare-styleable name="CircleImageView"><attr format="dimension" name="border_width"/><attr format="color" name="border_color"/><attr format="boolean" name="border_overlay"/><attr format="color" name="fill_color"/></declare-styleable>
+    <dimen name="hss_dialog_radius">5dp</dimen>
+    <string name="account_type">sgm.basicapplication.provider.ACCOUNT</string>
+    <string name="btn_accept">Accept</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_ok">OK</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="error">ERROR</string>
+    <string name="error_internet_lost">No internet connection</string>
+    <string name="error_internet_timeout">Time out! Cannot connect to server</string>
+    <string name="error_io_exception">An error occurred! Please try again.</string>
+    <string name="error_network_general">サーバーに接続されていません。もう一度やり直してください</string>
+    <string name="error_unknown_host">Cannot connect to server</string>
+    <string name="infomation">INFORMATION</string>
+    <string name="success">SUCCESS</string>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+
+        
+    </style>
+</resources>

@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">BasicApplication</string>
+    <string name="base64_key">abc</string>
+    <string name="txt_dot">...</string>
+    <string name="txt_privacy">Privacy</string>
+    <string name="btn_login">Login</string>
+    <string name="txt_forgot_password">Forgot password</string>
+    <string name="btn_create_account">Create Account</string>
+    <string name="email_validate">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._-@</string>
+    <string name="hint_input_your_email">Input your email</string>
+    <string name="hint_input_your_password">Input your password</string>
+    <string name="txt_loading">Loading</string>
+    <string name="msg_email_empty">Khong duoc de trong email</string>
+    <string name="msg_email_not_validate">Email khong dung dinh dang</string>
+    <string name="msg_password_empty">Khong de trong mat khau</string>
+    <string name="msg_password_not_enough_length">Mat khau khong du dai</string>
 </resources>
