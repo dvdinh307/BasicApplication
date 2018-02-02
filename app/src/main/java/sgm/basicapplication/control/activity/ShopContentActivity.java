@@ -7,10 +7,10 @@ import sgm.basicapplication.utils.BaseActivity;
  * Created by dinhdv on 2/2/2018.
  */
 
-public class HomeActivity extends BaseActivity {
+public class ShopContentActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_home;
+        return R.layout.activity_shop_content;
     }
 }

@@ -29,4 +29,6 @@
     <string name="name_menu_business">特商法に基づく表示</string>
     <string name="title_screen_manager_device">ログイン端末管理</string>
     <string name="btn_setting">設定</string>
+    <string name="msg_copy_right">Copyright (C) 2017 ARMS EDITION Co., Ltd. All rights reserved.</string>
+    <string name="back_again_to_exit">Press back again to exit</string>
 </resources>

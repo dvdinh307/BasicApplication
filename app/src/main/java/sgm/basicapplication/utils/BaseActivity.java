@@ -25,25 +25,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.error.VolleyError;
-import com.android.volley.request.JsonObjectRequest;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.HashMap;
-import java.util.Map;
 
 import sgm.basicapplication.R;
-import sgm.basicapplication.control.activity.LoginActivity;
-import sgm.basicapplication.control.activity.RegisterActivity;
+import sgm.basicapplication.control.activity.HomeActivity;
+import sgm.basicapplication.control.activity.ShopContentActivity;
 import sgm.basicapplication.control.activity.TermsActivity;
 import sgm.basicapplication.modul.User;
 import sgm.basicapplication.utils.custom.TextViewApp;
-import vn.hanelsoft.utils.AccountUtils;
-import vn.hanelsoft.utils.NetworkUtils;
 import vn.hanelsoft.utils.PreferenceUtils;
 
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
@@ -55,7 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected TextView tvTitle;
     protected ImageView ivLogo;
     TextViewApp menuHome, menuMyLibrary, menuProfile, menuHelp, menuTerm, menuSpcifiedTransaction, mTvDeviceManager, mTvLogin;
-    TextViewApp mTvPurchaseList, mTvHistory, mTvFavoriteList, mTvVersion, mTvPrivacy , mTvSetting;
+    TextViewApp mTvPurchaseList, mTvHistory, mTvFavoriteList, mTvVersion, mTvPrivacy, mTvSetting;
     protected ActionBarDrawerToggle mDrawerToggle;
     Activity activity;
     public static Point screenSize = null;
@@ -216,10 +205,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                 else drawerLayout.openDrawer(Gravity.RIGHT);
                 break;
             case R.id.iv_logo:
-                if (activity.getClass().getName().equals(TopActivity.class.getName()))
+                if (activity.getClass().getName().equals(HomeActivity.class.getName()))
                     return;
                 else
-                    startActivity(new Intent(activity, TopActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                    startActivity(new Intent(activity, HomeActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 break;
             case R.id.btn_shop:
                 if (activity.getClass().getName().equals(TermsActivity.class.getName()))
@@ -240,7 +229,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                     /**
                      * Nga yeu cau load lai khi click vao.
                      */
-                    startActivity(new Intent(activity, TopActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                    startActivity(new Intent(activity, HomeActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                     break;
                 case R.id.tv_library:
                     expandSubViewPurchase();
@@ -250,81 +239,28 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                     break;
                 case R.id.tv_profile:
                     closeRightMenu();
-                    if (activity.getClass().getName().equals(ProfileActivity.class.getName()))
+                    if (activity.getClass().getName().equals(ShopContentActivity.class.getName()))
                         return;
 //                    startActivity(new Intent(activity, ProfileActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                    startActivity(new Intent(activity, TeacherProfileCardActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                    startActivity(new Intent(activity, ShopContentActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                     break;
                 case R.id.tv_term:
                     closeRightMenu();
-                    if (activity.getClass().getName().equals(PolicyActivity.class.getName()))
+                    if (activity.getClass().getName().equals(ShopContentActivity.class.getName()))
                         return;
-                    startActivity(new Intent(activity, PolicyActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                    startActivity(new Intent(activity, ShopContentActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                     break;
                 case R.id.tv_help:
                     closeRightMenu();
-                    if (activity.getClass().getName().equals(PaidMemberGuiderActivity.class.getName()))
+                    if (activity.getClass().getName().equals(ShopContentActivity.class.getName()))
                         return;
-                    startActivity(new Intent(activity, PaidMemberGuiderActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(PaidMemberGuiderActivity.KEY_SHOW_BACK, false));
+                    startActivity(new Intent(activity, ShopContentActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                     break;
                 case R.id.tv_specified_transaction:
                     closeRightMenu();
                     if (activity.getClass().getName().equals(TermsActivity.class.getName()))
                         return;
                     startActivity(new Intent(activity, TermsActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                    break;
-                case R.id.tv_purchase_list:
-                    closeRightMenu();
-                    if (activity.getClass().getName().equals(MyLibraryActivity.class.getName())) {
-                        sendBroadcast(new Intent(AppConstants.BROAD_CAST.CHANGE_TAB).putExtra(AppConstants.KEY_SEND.KEY_SEND_TAB, 0));
-                        return;
-                    }
-                    startActivity(new Intent(activity, MyLibraryActivity.class)
-                            .putExtra(KeyParser.KEY.DATA.toString(), 0)
-                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                    break;
-                case R.id.tv_purchase_history:
-                    closeRightMenu();
-                    if (activity.getClass().getName().equals(MyLibraryActivity.class.getName())) {
-                        sendBroadcast(new Intent(AppConstants.BROAD_CAST.CHANGE_TAB).putExtra(AppConstants.KEY_SEND.KEY_SEND_TAB, 1));
-                        return;
-                    }
-                    startActivity(new Intent(activity, MyLibraryActivity.class)
-                            .putExtra(KeyParser.KEY.DATA.toString(), 1)
-                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                    break;
-                case R.id.tv_favorite_list:
-                    closeRightMenu();
-                    if (activity.getClass().getName().equals(MyLibraryActivity.class.getName())) {
-                        sendBroadcast(new Intent(AppConstants.BROAD_CAST.CHANGE_TAB).putExtra(AppConstants.KEY_SEND.KEY_SEND_TAB, 2));
-                        return;
-                    }
-                    startActivity(new Intent(activity, MyLibraryActivity.class)
-                            .putExtra(KeyParser.KEY.DATA.toString(), 2)
-                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                    break;
-                case R.id.tv_device_manager:
-                    closeRightMenu();
-                    if (activity.getClass().getName().equals(ManagerDeviceActivity.class.getName())) {
-                        return;
-                    }
-                    startActivity(new Intent(activity, ManagerDeviceActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                    break;
-                case R.id.tv_login:
-                    closeRightMenu();
-                    startActivity(new Intent(activity, LoginActivity.class));
-                    break;
-                case R.id.tv_privacy:
-                    closeRightMenu();
-                    if (activity.getClass().getName().equals(JackTermsActivity.class.getName()))
-                        return;
-                    startActivity(new Intent(activity, JackTermsActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                    break;
-                case R.id.tv_setting:
-                    closeRightMenu();
-                    if (activity.getClass().getName().equals(SettingActivity.class.getName()))
-                        return;
-                    startActivity(new Intent(activity, SettingActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                     break;
             }
         }
@@ -381,75 +317,76 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    public void goMaintainScreen(Activity activity, String msg) {
-        startActivity(new Intent(activity, MaintainActivity.class).putExtra(AppConstants.KEY_SEND.KEY_MSG_MAINTAIN, msg).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
-    }
 
-    public void goRegisterScreenUserFree() {
-        startActivity(new Intent(activity, RegisterActivity.class).putExtra(AppConstants.KEY_INTENT.IS_REGISTER_USER.toString(), true));
-    }
+//    public void goMaintainScreen(Activity activity, String msg) {
+//        startActivity(new Intent(activity, MaintainActivity.class).putExtra(AppConstants.KEY_SEND.KEY_MSG_MAINTAIN, msg).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+//    }
+//
+//    public void goRegisterScreenUserFree() {
+//        startActivity(new Intent(activity, RegisterActivity.class).putExtra(AppConstants.KEY_INTENT.IS_REGISTER_USER.toString(), true));
+//    }
+//
+//    public void sessionExpire() {
+//        HSSDialog.show(activity, getString(R.string.msg_session_expire), "Ok", new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                sendRequestLoginSkipUser(AppConstants.TEST.USER_NAME, AppConstants.TEST.PASSWORD);
+//            }
+//        });
+//    }
 
-    public void sessionExpire() {
-        HSSDialog.show(activity, getString(R.string.msg_session_expire), "Ok", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendRequestLoginSkipUser(AppConstants.TEST.USER_NAME, AppConstants.TEST.PASSWORD);
-            }
-        });
-    }
-
-    private void sendRequestLoginSkipUser(final String email, final String password) {
-        showLoading();
-        Map<String, String> params = new HashMap<>();
-        params.put(AppConstants.KEY_PARAMS.CLIENT_ID.toString(), String.valueOf(AppConstants.CLIENT_ID));
-        params.put(AppConstants.KEY_PARAMS.DEVICE_ID.toString(), AppUtils.getDeviceID(activity));
-        params.put(AppConstants.KEY_PARAMS.EMAIL.toString(), email);
-        params.put(AppConstants.KEY_PARAMS.PASSWORD.toString(), password);
-        JSONObject parameters = new JSONObject(params);
-        HashMap<String, String> header = new HashMap<>();
-        header.put("Content-Type", "application/json");
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, AppConstants.SERVER_PATH.LOGIN.toString(), parameters,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        if (response.length() > 0) {
-                            int status = response.optInt(AppConstants.KEY_PARAMS.STATUS.toString(), 1);
-                            String msg = response.optString(AppConstants.KEY_PARAMS.MESSAGE.toString(), "");
-                            if (status == AppConstants.REQUEST_SUCCESS) {
-                                try {
-                                    JSONObject objectData = response.getJSONObject(AppConstants.KEY_PARAMS.DATA.toString());
-                                    String auth = objectData.optString(AppConstants.KEY_PARAMS.AUTH_TOKEN.toString(), "");
-                                    if (auth.length() > 0) {
-                                        HSSPreference.getInstance(activity).putString(AppConstants.KEY_PREFERENCE.AUTH_TOKEN.toString(), auth);
-                                    }
-                                    User user = User.parse(objectData.getJSONObject("info"));
-                                    User.getInstance().setCurrentUser(user);
-                                    AccountUtils.saveAccountInformation(activity, mManagerAccount, email, password);
-                                    dismissLoading();
-                                    startActivity(new Intent(activity, TopActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                                    finish();
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            } else if (status == AppConstants.STATUS_REQUEST.SERVER_MAINTAIN) {
-                                goMaintainScreen(activity, msg);
-                            } else {
-                                dismissLoading();
-                                HSSDialog.show(activity, getString(R.string.msg_login_error_password_id_error));
-                            }
-                        }
-                        System.out.println(response);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                dismissLoading();
-                NetworkUtils.showDialogError(activity, error);
-            }
-        });
-        request.setHeaders(header);
-        ForestApplication.getInstance().addToRequestQueue(request);
-    }
+//    private void sendRequestLoginSkipUser(final String email, final String password) {
+//        showLoading();
+//        Map<String, String> params = new HashMap<>();
+//        params.put(AppConstants.KEY_PARAMS.CLIENT_ID.toString(), String.valueOf(AppConstants.CLIENT_ID));
+//        params.put(AppConstants.KEY_PARAMS.DEVICE_ID.toString(), AppUtils.getDeviceID(activity));
+//        params.put(AppConstants.KEY_PARAMS.EMAIL.toString(), email);
+//        params.put(AppConstants.KEY_PARAMS.PASSWORD.toString(), password);
+//        JSONObject parameters = new JSONObject(params);
+//        HashMap<String, String> header = new HashMap<>();
+//        header.put("Content-Type", "application/json");
+//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, AppConstants.SERVER_PATH.LOGIN.toString(), parameters,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        if (response.length() > 0) {
+//                            int status = response.optInt(AppConstants.KEY_PARAMS.STATUS.toString(), 1);
+//                            String msg = response.optString(AppConstants.KEY_PARAMS.MESSAGE.toString(), "");
+//                            if (status == AppConstants.REQUEST_SUCCESS) {
+//                                try {
+//                                    JSONObject objectData = response.getJSONObject(AppConstants.KEY_PARAMS.DATA.toString());
+//                                    String auth = objectData.optString(AppConstants.KEY_PARAMS.AUTH_TOKEN.toString(), "");
+//                                    if (auth.length() > 0) {
+//                                        HSSPreference.getInstance(activity).putString(AppConstants.KEY_PREFERENCE.AUTH_TOKEN.toString(), auth);
+//                                    }
+//                                    User user = User.parse(objectData.getJSONObject("info"));
+//                                    User.getInstance().setCurrentUser(user);
+//                                    AccountUtils.saveAccountInformation(activity, mManagerAccount, email, password);
+//                                    dismissLoading();
+//                                    startActivity(new Intent(activity, TopActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+//                                    finish();
+//                                } catch (JSONException e) {
+//                                    e.printStackTrace();
+//                                }
+//                            } else if (status == AppConstants.STATUS_REQUEST.SERVER_MAINTAIN) {
+//                                goMaintainScreen(activity, msg);
+//                            } else {
+//                                dismissLoading();
+//                                HSSDialog.show(activity, getString(R.string.msg_login_error_password_id_error));
+//                            }
+//                        }
+//                        System.out.println(response);
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                dismissLoading();
+//                NetworkUtils.showDialogError(activity, error);
+//            }
+//        });
+//        request.setHeaders(header);
+//        ForestApplication.getInstance().addToRequestQueue(request);
+//    }
 
     public void showLoading() {
         if (!mPrg.isShowing() && mPrg != null)
