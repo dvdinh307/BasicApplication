@@ -66,7 +66,8 @@ public class NewObject implements Parcelable, AppObject<NewObject> {
 
     @Override
     public NewObject parserData(JSONObject object) {
-        return (NewObject) ParserJsonUtils.getObject(NewObject.class.getName(), object, AppConstants.KEY_PARAMS.ID.toString()
-                , AppConstants.KEY_PARAMS.NAME.toString());
+        return (NewObject) ParserJsonUtils.getObject(NewObject.class.getName(), object,
+                AppConstants.KEY_PARAMS.ID.toString(),
+                AppConstants.KEY_PARAMS.NAME.toString());
     }
 }

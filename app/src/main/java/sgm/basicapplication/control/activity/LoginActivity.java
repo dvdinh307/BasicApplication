@@ -78,7 +78,7 @@ public class LoginActivity extends NormalBaseActivity {
     protected void initEvents() {
         // TEST :
         try {
-            JSONObject object = new JSONObject("{\"id\":\"22\",\"name\":\"ABC\"}");
+            JSONObject object = new JSONObject("{\"id\":33,\"name\":1}");
             NewObject newObject = new NewObject().parserData(object);
             Log.e("Values", "Values :" + newObject.getId());
         } catch (JSONException e) {
