@@ -2,6 +2,7 @@ package sgm.basicapplication.control.activity;
 
 import android.accounts.AccountManager;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -80,8 +81,8 @@ public class LoginActivity extends NormalBaseActivity {
     public void OnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_create_account:
-//                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-//                finish();
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                finish();
                 break;
             case R.id.btn_login:
                 String email = mEdtEmail.getText().toString();
@@ -91,10 +92,10 @@ public class LoginActivity extends NormalBaseActivity {
                 }
                 break;
             case R.id.tv_forgot_password:
-//                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
                 break;
             case R.id.tv_privacy:
-//                startActivity(new Intent(LoginActivity.this, JackTermsActivity.class).putExtra(AppConstants.KEY_SEND.KEY_DATA, false));
+                startActivity(new Intent(LoginActivity.this, TermsActivity.class));
                 break;
         }
     }

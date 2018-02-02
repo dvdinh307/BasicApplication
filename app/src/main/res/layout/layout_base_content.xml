@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layout_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/value_height_action_bar"
+        android:background="@android:color/white">
+
+        <sgm.basicapplication.utils.custom.TextViewApp
+            android:id="@+id/tv_title_screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/btn_menu"
+            android:layout_toRightOf="@+id/btn_back"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="#5b5b5b"
+            android:textSize="16sp"
+            app:fontFamily="hiramaruw6"
+            app:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:src="@mipmap/ic_back"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/btn_menu"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:src="@mipmap/ic_drawer" />
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/ic_logo" />
+
+        <ImageView
+            android:id="@+id/btn_shop"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@id/btn_menu"
+            android:padding="10dp"
+            android:src="@mipmap/ic_shop" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout_action_bar"
+        android:background="@android:color/white" />
+
+
+</RelativeLayout>

@@ -14,4 +14,19 @@
     <string name="msg_email_not_validate">Email khong dung dinh dang</string>
     <string name="msg_password_empty">Khong de trong mat khau</string>
     <string name="msg_password_not_enough_length">Mat khau khong du dai</string>
+    <string name="hint_email_forgot">Input your email</string>
+    <string name="txt_forgot_sub">gui vao email cua ban</string>
+    <string name="txt_forgot_title">Quen mat khau</string>
+    <string name="btn_send">Send</string>
+    <string name="msg_login_error_try_again">Login error</string>
+    <string name="btn_register">Register</string>
+    <string name="txt_skip">Skip</string>
+    <string name="btn_go_login">Login</string>
+    <string name="hint_input_re_password">Nhap lai mat khau</string>
+    <string name="msg_re_password_empty">Nhap lai password</string>
+    <string name="msg_password_not_equal_re_password">Mat khau khong trung khop</string>
+    <string name="name_menu_service">利用規約</string>
+    <string name="name_menu_business">特商法に基づく表示</string>
+    <string name="title_screen_manager_device">ログイン端末管理</string>
+    <string name="btn_setting">設定</string>
 </resources>

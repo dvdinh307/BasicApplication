@@ -32,6 +32,12 @@ public class AppConstants {
         return isTestMode ? "http://alexapp.ito.vn/service/" : "http://alexapp.ito.vn/service/";
     }
 
+    public static class STATUS_USER {
+        public static final int NORMAL = 1;
+        public static final int REQUESTING = 2;
+        public static final int DONE = 3;
+        public static final int ERROR = 4;
+    }
 
     public enum KEY_INTENT {
         URL_DIAGNOSIS("KEY_URL_DIAGNOSIS"),

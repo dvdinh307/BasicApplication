@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/green"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/value_30dp"
+            android:layout_marginRight="@dimen/value_30dp"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/value_10dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edittext">
+
+                <ImageView
+                    android:id="@+id/imv_email"
+                    android:layout_width="@dimen/value_25dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/value_15dp"
+                    android:adjustViewBounds="true"
+                    android:src="@mipmap/ic_email" />
+
+                <sgm.basicapplication.utils.custom.EditTextApp
+                    android:id="@+id/edt_email"
+                    style="@style/EditTextApp"
+                    android:layout_toRightOf="@id/imv_email"
+                    android:background="@android:color/transparent"
+                    android:digits="@string/email_validate"
+                    android:gravity="center_vertical"
+                    android:hint="@string/hint_input_your_email"
+                    android:inputType="textEmailAddress"
+                    app:fontFamily="kozgopro6n_r" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tv_error_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <RelativeLayout
+                android:id="@+id/rl_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_15dp"
+                android:background="@drawable/bg_edittext">
+
+                <ImageView
+                    android:id="@+id/imv_key_password"
+                    android:layout_width="@dimen/value_25dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/value_15dp"
+                    android:adjustViewBounds="true"
+                    android:src="@mipmap/ic_key" />
+
+                <sgm.basicapplication.utils.custom.EditTextApp
+                    android:id="@+id/edt_password"
+                    style="@style/EditTextApp"
+                    android:layout_toRightOf="@id/imv_key_password"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/hint_input_your_password"
+                    android:inputType="textPassword" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_error_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <RelativeLayout
+                android:id="@+id/rl_re_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/value_15dp"
+                android:background="@drawable/bg_edittext">
+
+                <ImageView
+                    android:id="@+id/imv_key_re_password"
+                    android:layout_width="@dimen/value_25dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/value_15dp"
+                    android:adjustViewBounds="true"
+                    android:src="@mipmap/ic_key" />
+
+                <sgm.basicapplication.utils.custom.EditTextApp
+                    android:id="@+id/edt_re_password"
+                    style="@style/EditTextApp"
+                    android:layout_toRightOf="@id/imv_key_re_password"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/hint_input_re_password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_error_re_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/ll_input">
+
+            <ImageView
+                android:id="@+id/imv_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:src="@mipmap/ic_launcher" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <sgm.basicapplication.utils.custom.TextViewApp
+            android:id="@+id/tv_privacy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/value_10dp"
+            android:layout_marginTop="@dimen/value_10dp"
+            android:gravity="center"
+            android:text="@string/txt_privacy"
+            android:textColor="#557c07"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:fontFamily="kozgopro6n_b"
+            app:textStyle="bold" />
+
+        <sgm.basicapplication.utils.custom.ButtonApp
+            android:id="@+id/btn_submit"
+            style="@style/ButtonForest"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/value_10dp"
+            android:text="@string/btn_register"
+            app:fontFamily="kozgopro6n_m"
+            app:textStyle="bold" />
+
+        <sgm.basicapplication.utils.custom.TextViewApp
+            android:id="@+id/tv_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/value_10dp"
+            android:text="@string/txt_skip"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:fontFamily="kozgopro6n_b"
+            app:textStyle="bold"
+            tools:visibility="visible" />
+
+        <sgm.basicapplication.utils.custom.ButtonApp
+            android:id="@+id/btn_login"
+            style="@style/ButtonForest"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/value_20dp"
+            android:text="@string/btn_go_login"
+            android:textSize="18sp"
+            app:fontFamily="kozgopro6n_m"
+            app:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>
