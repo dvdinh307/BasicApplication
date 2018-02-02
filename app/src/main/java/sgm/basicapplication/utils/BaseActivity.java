@@ -31,7 +31,7 @@ import sgm.basicapplication.R;
 import sgm.basicapplication.control.activity.HomeActivity;
 import sgm.basicapplication.control.activity.ShopContentActivity;
 import sgm.basicapplication.control.activity.TermsActivity;
-import sgm.basicapplication.modul.User;
+import sgm.basicapplication.module.User;
 import sgm.basicapplication.utils.custom.TextViewApp;
 import vn.hanelsoft.utils.PreferenceUtils;
 
@@ -156,7 +156,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     protected HashMap<String, String> getAuthHeader() {
         HashMap<String, String> header = new HashMap<>();
-        String auth = PreferenceUtils.getInstance().getString(AppConstants.KEY_PREFERENCE.AUTH_TOKEN.toString(), "");
+        String auth = PreferenceUtils.getInstance(BaseActivity.this).getString(AppConstants.KEY_PREFERENCE.AUTH_TOKEN.toString(), "");
         header.put("Authorization", auth);
         return header;
     }

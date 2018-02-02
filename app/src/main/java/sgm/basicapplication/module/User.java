@@ -1,4 +1,4 @@
-package sgm.basicapplication.modul;
+package sgm.basicapplication.module;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;

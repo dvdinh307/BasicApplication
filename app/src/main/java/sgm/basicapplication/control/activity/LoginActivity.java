@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -24,6 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import sgm.basicapplication.R;
+import sgm.basicapplication.module.NewObject;
 import sgm.basicapplication.utils.AppConstants;
 import sgm.basicapplication.utils.AppUtils;
 import sgm.basicapplication.utils.RequestDataUtils;
@@ -74,7 +76,14 @@ public class LoginActivity extends NormalBaseActivity {
 
     @Override
     protected void initEvents() {
-
+        // TEST :
+        try {
+            JSONObject object = new JSONObject("{\"id\":\"22\",\"name\":\"ABC\"}");
+            NewObject newObject = new NewObject().parserData(object);
+            Log.e("Values", "Values :" + newObject.getId());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @OnClick({R.id.btn_create_account, R.id.btn_login, R.id.tv_forgot_password, R.id.tv_privacy})

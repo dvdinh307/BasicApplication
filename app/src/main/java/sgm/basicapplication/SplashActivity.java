@@ -116,9 +116,9 @@ public class SplashActivity extends NormalBaseActivity {
         params.put(AppConstants.KEY_PARAMS.TYPE.toString(), "2");
         params.put(AppConstants.KEY_PARAMS.DEVICE_NAME.toString(), AppUtils.getDeviceName(SplashActivity.this));
         params.put(AppConstants.KEY_PARAMS.OS_VERSION.toString(), AppUtils.getOsVersion());
-        String isFirstRun = PreferenceUtils.getInstance().getString(AppConstants.KEY_PREFERENCE.IS_FIRST_RUN.toString(), "");
+        String isFirstRun = PreferenceUtils.getInstance(SplashActivity.this).getString(AppConstants.KEY_PREFERENCE.IS_FIRST_RUN.toString(), "");
         if (isFirstRun.length() == 0)
-            PreferenceUtils.getInstance().putString(AppConstants.KEY_PREFERENCE.IS_FIRST_RUN.toString(), "has_run");
+            PreferenceUtils.getInstance(SplashActivity.this).putString(AppConstants.KEY_PREFERENCE.IS_FIRST_RUN.toString(), "has_run");
         params.put(AppConstants.KEY_PARAMS.NEW_APP.toString(), isFirstRun.length() == 0 ? "1" : "2");
         RequestDataUtils.requestData(Request.Method.POST, SplashActivity.this, AppConstants.SERVER_PATH.SPLASH.toString(), params, new RequestDataUtils.onResult() {
             @Override

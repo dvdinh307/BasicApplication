@@ -35,3 +35,5 @@ dependencies {
     compile 'dev.dworks.libs:volleyplus:0.1.4'
     compile 'me.leolin:ShortcutBadger:1.1.16@aar'
 }
+
+apply plugin: 'com.google.gms.google-services'

@@ -24,12 +24,6 @@ public class PreferenceUtils {
         return instance;
     }
 
-    public static PreferenceUtils getInstance() {
-        if (instance == null)
-            throw new NullPointerException("PreferenceUtils not initialized. Please invoke initialize() method first");
-        return instance;
-    }
-
     public void putBool(String key, boolean value) {
         Editor editor = sharedpreferences.edit();
         editor.putBoolean(key, value);
